@@ -1,4 +1,4 @@
-# making multiplicative cipher encryption and decryption using python
+# making affine cipher encryption and decryption using python
 
 import sys
 
