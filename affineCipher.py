@@ -1,6 +1,24 @@
 # making affine cipher encryption and decryption using python
 
 import sys
+import os
+
+# site: https://www.patorjk.com/software/taag/
+# font name big; orge
+
+design = """
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++               __  __ _               _____ _       _                   +
++        /\    / _|/ _(_)             / ____(_)     | |                  +
++       /  \  | |_| |_ _ _ __   ___  | |     _ _ __ | |__   ___ _ __     +
++      / /\ \ |  _|  _| | '_ \ / _ \ | |    | | '_ \| '_ \ / _ \ '__|    +
++     / ____ \| | | | | | | | |  __/ | |____| | |_) | | | |  __/ |       +
++    /_/    \_\_| |_| |_|_| |_|\___|  \_____|_| .__/|_| |_|\___|_|       +
++                                             | |                        +
++                                             |_|                        +
++                                                        -By 7omahawk    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
 
 domain = 26
 string = "abcdefghijklmnopqrstuvwxyz"
@@ -80,6 +98,7 @@ def decryption(userInput, key1, key2, t1, domain, string):
 
 # choice the what you need to do (encrypt/decrypt)
 while(True):
+    print(design)
     print("Enter your choice(Number): ")
     print("1. Encryption: ")
     print("2. Decryption: ")
@@ -89,15 +108,15 @@ while(True):
 
     def choice(number):
         if number == 1:
-            userInput = input("Enter your text to encrypt: ")
-            key1 = int(input("Enter the first key: "))
-            key2 = int(input("Enter the second key: "))
+            userInput = input("Enter your text to encrypt (A-Z): ")
+            key1 = int(input("Enter the first key (Prime number, ex: 5): "))
+            key2 = int(input("Enter the second key (ex: 11): "))
             userInput = userInput.lower()
             encryption(userInput, key1, key2, domain, string)
         elif number == 2:
-            userInput = input("Enter your text to decrypt: ")
-            key1 = int(input("Enter the first key: "))
-            key2 = int(input("Enter the second key: "))
+            userInput = input("Enter your text to decrypt (A-Z): ")
+            key1 = int(input("Enter the first key (Prime number, ex: 5): "))
+            key2 = int(input("Enter the second key (ex: 11): "))
             userInput = userInput.lower()
             t1 = multiplicativeInverse(key1, domain)
             decryption(userInput, key1, key2, t1, domain, string)
@@ -107,3 +126,6 @@ while(True):
             print("Input should be a number from 1 to 3")
 
     choice(number) 
+
+    input()             # press enter to clear screen
+    os.system('clear')  # clear screen
